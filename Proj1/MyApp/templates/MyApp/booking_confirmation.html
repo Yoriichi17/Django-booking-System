@@ -1,0 +1,30 @@
+<!-- MyApp/templates/MyApp/booking_confirmation.html -->
+
+{% extends 'MyApp/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Booking Confirmation</h2>
+    <table class="table-container">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Number of Tickets</th>
+                <th>Event Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.name }}</td>
+                    <td>{{ booking.email }}</td>
+                    <td>{{ booking.number_of_tickets }}</td>
+                    <td>{{ booking.event.title }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'index' %}">Go back to events page</a>
+</div>
+{% endblock %}

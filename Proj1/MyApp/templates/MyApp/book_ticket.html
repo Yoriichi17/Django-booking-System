@@ -1,0 +1,25 @@
+<!-- MyApp/templates/MyApp/book_ticket.html -->
+
+{% extends 'MyApp/base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Book Tickets for {{ event.title }}</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="id_name">Name:</label>
+            {{ form.name }}
+        </div>
+        <div class="form-group">
+            <label for="id_email">Email:</label>
+            {{ form.email }}
+        </div>
+        <div class="form-group">
+            <label for="id_number_of_tickets">Number of Tickets:</label>
+            {{ form.number_of_tickets }}
+        </div>
+        <button type="submit">Book Tickets</button>
+    </form>
+</div>
+{% endblock %}
